@@ -9,8 +9,12 @@ function node(data = null, left = null, right = null) {
 }
 
 function tree(array) {
-  array = mergeSort(array);
-  array = [...new Set(array)];
+  function arrayCleaner() {
+    array = mergeSort(array);
+    array = [...new Set(array)];
+  }
+  arrayCleaner(array);
+
   let root = buildTree(array, 0, array.length - 1);
 
   function buildTree(array, start, end) {
@@ -28,6 +32,18 @@ function tree(array) {
     root: root,
   };
 }
+
+/*
+
+
+
+
+
+
+
+
+
+*/
 
 const array = [4, 6, 2, 5, 3, 7, 8, 2, 12, 4, 6, 73];
 const bst = tree(array);
