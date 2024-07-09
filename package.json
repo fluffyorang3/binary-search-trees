@@ -1,0 +1,12 @@
+{
+  "name": "binary-search-trees",
+  "version": "1.0.0",
+  "description": "This is the binary search trees project of The Odin Project.`",
+  "main": "balancedTree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
