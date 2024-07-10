@@ -75,7 +75,7 @@ function tree(array) {
 
 */
 
-const array = [2, 6, 4, 1, 3];
+const array = [2, 6, 4, 1, 3, 0, 9, 3, 65, 16, 6];
 const bst = tree(array);
 const rooty = bst.root;
 
@@ -99,6 +99,10 @@ prettyPrint(rooty);
 bst.insert(5);
 prettyPrint(rooty);
 bst.insert(10);
+prettyPrint(rooty);
+bst.insert(0);
+prettyPrint(rooty);
+bst.insert(0);
 prettyPrint(rooty);
 bst.insert(0);
 prettyPrint(rooty);
