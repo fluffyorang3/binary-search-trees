@@ -57,6 +57,45 @@ function tree(array) {
       parentNode.right = newNode;
     }
   }
+
+  function deleteItem() {
+    let currentNode = root;
+    let parentNode = null;
+
+    if (root === null) {
+      console.log("Nothing to delete");
+      return;
+    }
+
+    while (currentNode.data !== value) {
+      if (currentNode.data > value) {
+        parentNode = currentNode;
+        currentNode = currentNode.left;
+      } else if (currentNode.data < value) {
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      } else {
+        console.log("The value doesn't exist in the tree");
+        return;
+      }
+    }
+    //leaf node deletion
+    if (currentNode.left === null && currentNode.right === null) {
+      if (currentNode.data > parentNode.data) {
+        currentNode = null;
+        parentNode.right = null;
+      } else {
+        currentNode = null;
+        parentNode.left = null;
+      }
+    }
+
+    if (
+      (currentNode.left === null && currentNode.right !== null) ||
+      (currentNode.left !== null && currentNode.right === null)
+    ) {
+    }
+  }
   return {
     root: root,
     insert: insert,
