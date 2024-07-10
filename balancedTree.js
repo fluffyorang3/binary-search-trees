@@ -28,8 +28,38 @@ function tree(array) {
     newNode.right = buildTree(array, mid + 1, end);
     return newNode;
   }
+
+  function insert(value) {
+    let newNode = node(value);
+
+    if (root === null) {
+      root = newNode;
+      return;
+    }
+    let currentNode = root;
+    let parentNode = null;
+
+    while (currentNode !== null) {
+      parentNode = currentNode;
+      if (currentNode.data === value) {
+        return;
+      } else if (currentNode.data > value) {
+        currentNode = currentNode.left;
+      } else {
+        currentNode = currentNode.right;
+      }
+    }
+
+    if (parentNode.data > value) {
+      parentNode.left = newNode;
+    }
+    if (parentNode.data < value) {
+      parentNode.right = newNode;
+    }
+  }
   return {
     root: root,
+    insert: insert,
   };
 }
 
@@ -45,7 +75,7 @@ function tree(array) {
 
 */
 
-const array = [4, 6, 2, 5, 3, 7, 8, 2, 12, 4, 6, 73];
+const array = [2, 6, 4, 1, 3];
 const bst = tree(array);
 const rooty = bst.root;
 
@@ -62,4 +92,13 @@ const prettyPrint = (rooty, prefix = "", isLeft = true) => {
   }
 };
 
+prettyPrint(rooty);
+
+bst.insert(9);
+prettyPrint(rooty);
+bst.insert(5);
+prettyPrint(rooty);
+bst.insert(10);
+prettyPrint(rooty);
+bst.insert(0);
 prettyPrint(rooty);
