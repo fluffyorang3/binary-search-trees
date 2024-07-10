@@ -58,7 +58,7 @@ function tree(array) {
     }
   }
 
-  function deleteItem() {
+  function deleteItem(value) {
     let currentNode = root;
     let parentNode = null;
 
@@ -81,12 +81,12 @@ function tree(array) {
     }
     //leaf node deletion
     if (currentNode.left === null && currentNode.right === null) {
-      if (currentNode.data > parentNode.data) {
-        currentNode = null;
-        parentNode.right = null;
-      } else {
-        currentNode = null;
+      if (currentNode.data === root) {
+        root = null;
+      } else if (parent.left === currentNode) {
         parentNode.left = null;
+      } else {
+        parentNode.right = null;
       }
     }
 
